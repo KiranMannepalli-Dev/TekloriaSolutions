@@ -15,18 +15,6 @@ export default function About() {
       img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800",
       bgColor: "#F9A8A8",
       curve: "up" as const
-    },
-    {
-      name: "Bhanu",
-      img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-      bgColor: "#C8E4F8",
-      curve: "down" as const
-    },
-    {
-      name: "Yaswanth Mannepalli",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-      bgColor: "#FAD2A8",
-      curve: "up" as const
     }
   ];
 
@@ -230,7 +218,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-[860px] mx-auto items-start">
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6 max-w-[430px] mx-auto items-start">
           {team.map((member, idx) => (
             <div key={idx} className="group flex flex-col items-center">
               {/* Compact Wavy Shaped Portrait Container */}
