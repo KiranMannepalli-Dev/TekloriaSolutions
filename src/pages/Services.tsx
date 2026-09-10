@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Code, Smartphone, PenTool, LayoutTemplate, LineChart, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Code, Smartphone, PenTool, LayoutTemplate, LineChart, Users, ArrowRight, CheckCircle2, Bot, Workflow } from 'lucide-react';
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
@@ -57,6 +57,20 @@ export default function Services() {
       desc: "Finding and onboarding the right technical talent. We screen, vet, and place senior software engineers, UI/UX designers, and product leaders who align with your technical bar and company culture.",
       features: ["Technical Screening & Assessment", "Direct Hire & Staff Augmentation", "Culture-Match Vetting", "Rapid Hiring Turnaround"],
       illustration: <HrIllustration />
+    },
+    { 
+      title: "AI Chatbots & Agents", 
+      icon: <Bot size={28} className="text-[#EF4444]" />, 
+      desc: "Deploy intelligent conversational agents and autonomous AI systems to engage customers 24/7 and handle complex inquiries.",
+      features: ["Custom AI Chatbots", "Autonomous Agents", "LLM Integration", "Customer Support AI"],
+      illustration: <img src="/Chat bot-pana.svg" alt="AI Chatbot Illustration" className="w-full h-full object-contain drop-shadow-sm" />
+    },
+    { 
+      title: "Business Automations", 
+      icon: <Workflow size={28} className="text-[#EF4444]" />, 
+      desc: "Streamline your operations with intelligent workflow automations to reduce manual tasks, eliminate errors, and scale effortlessly.",
+      features: ["Business Process Automation", "API Integrations", "Data Synchronization", "Task Automation"],
+      illustration: <img src="/Design Process-cuate.svg" alt="Business Automations Illustration" className="w-full h-full object-contain drop-shadow-sm" />
     }
   ];
 

@@ -68,6 +68,39 @@ export default function Portfolio() {
     },
   ];
 
+  const previousWorks = [
+    {
+      title: "Dental Clinic Platform",
+      link: "https://dental-clinic-api-henna.vercel.app/",
+      img: "/Dental Clinic.png"
+    },
+    {
+      title: "Winev Bike Rentals",
+      link: "https://winev-bike-rentals.vercel.app/",
+      img: "/Winev Bikes.png"
+    },
+    {
+      title: "Elite Real Estate",
+      link: "https://elite-realestate.web.app/",
+      img: "/Realestate.png"
+    },
+    {
+      title: "Home Dream Interio",
+      link: "https://home-dream-interio.vercel.app/",
+      img: "/Home Interior.png"
+    },
+    {
+      title: "Core Engine",
+      link: "https://cro-engine-seven.vercel.app/",
+      img: "/Core Engine.png"
+    },
+    {
+      title: "Mentor OS AI",
+      link: "https://mentor-ai-web-chi.vercel.app/",
+      img: "/Mentor OS.png"
+    }
+  ];
+
   const filtered = selectedFilter === 'All' 
     ? projects 
     : projects.filter(p => p.category === selectedFilter);
@@ -188,40 +221,26 @@ export default function Portfolio() {
           <p className="text-[#475569] text-sm">Explore some of our recently deployed client projects and applications.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          <a 
-            href="https://dental-clinic-api-henna.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="relative p-5 sm:p-6 bg-white border border-[#E5E7EB] rounded-[6px] group hover:border-[#EF4444] transition-all duration-300 flex flex-col justify-between min-h-[140px] hover:shadow-sm"
-          >
-            <h3 className="text-base font-semibold text-[#0B0B0F] mb-3 pr-6">Dental Clinic Website Development and ERP</h3>
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#475569] group-hover:text-[#EF4444] transition-colors mt-auto">
-              Visit Live Site <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </a>
-
-          <a 
-            href="https://winev-bike-rentals.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="relative p-5 sm:p-6 bg-white border border-[#E5E7EB] rounded-[6px] group hover:border-[#EF4444] transition-all duration-300 flex flex-col justify-between min-h-[140px] hover:shadow-sm"
-          >
-            <h3 className="text-base font-semibold text-[#0B0B0F] mb-3 pr-6">Winev Bike Rentals Website Development</h3>
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#475569] group-hover:text-[#EF4444] transition-colors mt-auto">
-              Visit Live Site <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </a>
-
-          <a 
-            href="#" 
-            className="relative p-5 sm:p-6 bg-white border border-[#E5E7EB] rounded-[6px] group hover:border-[#EF4444] transition-all duration-300 flex flex-col justify-between min-h-[140px] hover:shadow-sm"
-          >
-            <h3 className="text-base font-semibold text-[#0B0B0F] mb-3 pr-6">HOMEDREAMINTERIO</h3>
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#475569] group-hover:text-[#EF4444] transition-colors mt-auto">
-              Visit Live Site <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </a>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {previousWorks.map((work, idx) => (
+            <a 
+              key={idx}
+              href={work.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative bg-white border border-[#E5E7EB] rounded-[6px] group hover:border-[#EF4444] transition-all duration-300 flex flex-col overflow-hidden hover:shadow-sm"
+            >
+              <div className="w-full h-40 sm:h-48 overflow-hidden bg-[#F8FAFC]">
+                <img src={work.img} alt={work.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-4 sm:p-5 flex flex-col flex-grow">
+                <h3 className="text-base font-semibold text-[#0B0B0F] mb-3">{work.title}</h3>
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#475569] group-hover:text-[#EF4444] transition-colors mt-auto">
+                  Visit Live Site <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
