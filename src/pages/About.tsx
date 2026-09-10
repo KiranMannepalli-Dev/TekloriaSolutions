@@ -11,8 +11,8 @@ export default function About() {
       curve: "down" as const
     },
     {
-      name: "Revanth Bandi",
-      img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=800",
+      name: "Revanth Kumar Bandi",
+      img: "/Revanth Bandi.jpg",
       bgColor: "#F9A8A8",
       curve: "up" as const
     }
@@ -51,16 +51,16 @@ export default function About() {
       <section className="relative overflow-hidden pt-28 pb-12 sm:pb-14 px-6 sm:px-10 bg-[#F7F5F5] border-b border-[#E5E7EB]">
         {/* Subtle Sand Tone Ripple Accent */}
         <div className="absolute -right-16 -top-16 w-96 h-96 pointer-events-none opacity-45">
-          <ConcentricRipple 
-            id="about-hero-ripple" 
-            variant="neutral-sand" 
-            placement="top-right" 
+          <ConcentricRipple
+            id="about-hero-ripple"
+            variant="neutral-sand"
+            placement="top-right"
           />
         </div>
 
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-xs uppercase tracking-wider text-[#EF4444] font-semibold mb-2">About Tekloria</div>
-          <h1 
+          <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0B0B0F] mb-4"
             style={{ fontFamily: 'var(--font-display)' }}
           >
@@ -166,8 +166,8 @@ export default function About() {
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((val, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="relative overflow-hidden p-4 sm:p-6 bg-white border border-[#E5E7EB] rounded-[6px] flex flex-col justify-between group hover:border-[#EF4444] transition-all duration-300 hover:shadow-sm"
               >
                 {/* Subtle Hover Micro-Ripple Accent */}
@@ -222,15 +222,15 @@ export default function About() {
           {team.map((member, idx) => (
             <div key={idx} className="group flex flex-col items-center">
               {/* Compact Wavy Shaped Portrait Container */}
-              <div 
+              <div
                 className="w-full max-w-[155px] sm:max-w-[175px] aspect-[4/4.8] relative overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-sm"
                 style={{
                   clipPath: member.curve === 'down' ? 'url(#team-wave-down)' : 'url(#team-wave-up)',
                   backgroundColor: member.bgColor
                 }}
               >
-                <img 
-                  src={member.img} 
+                <img
+                  src={member.img}
                   alt={member.name}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
@@ -252,7 +252,7 @@ export default function About() {
         CTA SECTION (Sleek, Compact & Stylish Contained Card - design.md #52)
         ========================================================================
       */}
-      <CtaSection 
+      <CtaSection
         id="about"
         badge="Let's Build"
         title="Let's build something exceptional."

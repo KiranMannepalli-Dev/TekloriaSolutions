@@ -13,10 +13,41 @@ export default function Contact() {
     message: '' 
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/kiran.mannepalli.in@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          service: formState.service,
+          budget: formState.budget,
+          message: formState.message,
+          _subject: `New Project Inquiry from ${formState.name} - ${formState.service}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormState({ name: '', email: '', service: 'Web Development', budget: 'Not sure yet', message: '' });
+      } else {
+        alert("Something went wrong! Please try again.");
+      }
+    } catch (error) {
+      alert("Error submitting the form.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -277,9 +308,10 @@ export default function Contact() {
                   <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                     <button 
                       type="submit" 
-                      className="w-full sm:w-auto inline-flex items-center justify-center bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-base px-8 py-3.5 rounded-full transition-all duration-200"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto inline-flex items-center justify-center bg-[#EF4444] hover:bg-[#D93636] text-white font-medium text-base px-8 py-3.5 rounded-full transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      Submit Project Inquiry
+                      {isSubmitting ? 'Submitting...' : 'Submit Project Inquiry'}
                     </button>
                     
                     <a 
