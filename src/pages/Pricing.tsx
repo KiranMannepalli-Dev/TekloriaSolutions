@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { useCurrency } from '../context/CurrencyContext';
+
 import { CtaSection } from '../components/CtaSection';
 import { ConcentricRipple } from '../components/ConcentricRipple';
 import CardModal from '../components/CardModal';
 
 export default function Pricing() {
-  const { format, toggle, currency } = useCurrency();
+
 
   const packages = [
     { title: "Web Development", inr: 25000, desc: "Custom SPA, CMS integration, and scalable hosting architecture.", features: ["React / Next.js Setup", "Responsive Design", "Basic SEO Optimization", "Admin Dashboard"] },
@@ -43,17 +43,7 @@ export default function Pricing() {
               Every business is unique. These starting packages provide a baseline for our premium services. We tailor every final proposal to your exact technical scope.
             </p>
             
-            <div className="flex items-center justify-center gap-3">
-              <span className={`text-sm font-medium ${currency === 'INR' ? 'text-[#0B0B0F]' : 'text-[#475569]'}`}>INR (₹)</span>
-              <button 
-                onClick={toggle}
-                className="w-12 h-6 rounded-full bg-[#E5E7EB] relative transition-colors duration-300"
-                aria-label="Toggle currency"
-              >
-                <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-[#EF4444] transition-transform duration-300 ${currency === 'USD' ? 'translate-x-6' : 'translate-x-0'}`} />
-              </button>
-              <span className={`text-sm font-medium ${currency === 'USD' ? 'text-[#0B0B0F]' : 'text-[#475569]'}`}>USD ($)</span>
-            </div>
+
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
@@ -74,12 +64,7 @@ export default function Pricing() {
                 <h3 className="text-sm sm:text-lg font-bold text-[#0B0B0F] mb-1.5 sm:mb-2 leading-tight">{pkg.title}</h3>
                 <p className="hidden sm:block text-sm text-[#475569] leading-relaxed mb-6 flex-grow">{pkg.desc}</p>
                 
-                <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-[#E5E7EB]">
-                  <div className="text-[9px] sm:text-[11px] text-[#475569] uppercase tracking-wider font-semibold mb-0.5 sm:mb-1">Starting from</div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-lg sm:text-3xl font-bold text-[#EF4444] tracking-tight">{format(pkg.inr)}</span>
-                  </div>
-                </div>
+
 
                 <ul className="hidden sm:block space-y-1.5 sm:space-y-3 mb-4 sm:mb-8">
                   {pkg.features.map((feat, fidx) => (
