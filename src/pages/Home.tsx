@@ -85,6 +85,24 @@ export default function Home() {
     { num: "06", title: "Launch", desc: "Seamless deployment, scaling, and ongoing performance support." },
   ];
 
+  const clients = [
+    {
+      name: "KickZo",
+      logo: "/KickZo Logo.png",
+      category: "Footwear & E-Commerce",
+    },
+    {
+      name: "Winev",
+      logo: "/Second Logo for Winev-Photoroom.png",
+      category: "Smart Mobility & Rentals",
+    },
+    {
+      name: "Yedz Media",
+      logo: "/Yedz Media Client.png",
+      category: "Digital Media & Creative",
+    },
+  ];
+
   return (
     <div className="w-full bg-white">
       {/* 
@@ -306,6 +324,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 
+        ========================================================================
+        CLIENTS & PARTNERS SECTION (Background: Soft Line #F8FAFC - design.md #55)
+        ========================================================================
+      */}
+      <section className="relative overflow-hidden py-10 sm:py-12 bg-[#F8FAFC] border-b border-[#E5E7EB]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 mb-6 text-center">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#EF4444] font-semibold mb-2">
+            <span>Trusted Partnerships</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#0B0B0F] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+            Powering Next-Gen Solutions for Leading Brands
+          </h2>
+        </div>
+
+        {/* Continuous Flowing Horizontal Marquee of Client Logos */}
+        <div className="relative overflow-hidden max-w-full">
+          {/* Edge Fade Gradients */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#F8FAFC] via-[#F8FAFC]/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#F8FAFC] via-[#F8FAFC]/80 to-transparent z-20" />
+
+          <div className="overflow-hidden py-2">
+            <div className="animate-marquee gap-4 sm:gap-6 flex items-center">
+              {[...clients, ...clients, ...clients, ...clients, ...clients].map((client, idx) => (
+                <div 
+                  key={`${client.name}-${idx}`} 
+                  title={`${client.name} — ${client.category}`}
+                  className="group flex flex-col items-center justify-center shrink-0 transition-all duration-300 cursor-default"
+                >
+                  <div className="h-16 sm:h-20 w-36 sm:w-44 px-4 sm:px-6 py-2.5 rounded-[6px] bg-white border border-[#E5E7EB] hover:border-[#EF4444]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] group-hover:shadow-md transform group-hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="max-h-10 sm:max-h-12 max-w-full object-contain transform group-hover:scale-105 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span className="text-[11px] font-medium text-[#64748B] group-hover:text-[#0B0B0F] mt-2 transition-colors whitespace-nowrap">
+                    {client.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 
         ========================================================================
